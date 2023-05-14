@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./Login.css";
 import useToken from "../../hooks/useToken";
 
-interface Credentials {
+interface LoginCredentials {
   email: string;
   password: string;
 }
 
-async function loginUser(credentials: Credentials) {
+async function loginUser(credentials: LoginCredentials) {
   return fetch("http://localhost:8080/auth/authenticate", {
     method: "POST",
     headers: {
@@ -30,9 +30,10 @@ export default function Login() {
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
+
     const token = await loginUser({
       email: email,
-      password,
+      password: password,
     });
 
     setToken(token);
@@ -58,6 +59,11 @@ export default function Login() {
           <button type="submit">Submit</button>
         </div>
       </form>
+      <div>
+        <p>
+          No account? <Link to="/register">Register</Link>
+        </p>
+      </div>
     </div>
   );
 }
