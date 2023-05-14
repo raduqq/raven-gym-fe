@@ -1,13 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import useToken from "../../hooks/useToken";
 
 interface Credentials {
   email: string;
   password: string;
-}
-
-interface Props {
-  setToken: (token: string) => void;
 }
 
 async function loginUser(credentials: Credentials) {
@@ -24,9 +22,11 @@ async function loginUser(credentials: Credentials) {
     });
 }
 
-export default function Login({ setToken }: Props) {
+export default function Login() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const { setToken } = useToken();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -34,7 +34,9 @@ export default function Login({ setToken }: Props) {
       email: email,
       password,
     });
+
     setToken(token);
+    navigate("/");
   };
 
   return (
