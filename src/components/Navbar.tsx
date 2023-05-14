@@ -1,13 +1,11 @@
-import { useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 
 export default function Navbar() {
   const location = useLocation();
 
-  // Hide the navbar on the login page
-  const hideNavbar = location.pathname === "/login";
+  const hideNavbar =
+    location.pathname === "/login" || location.pathname === "/register";
 
-  // You can customize the navbar appearance and content here
   return (
     <nav
       className={`navbar navbar-expand-lg navbar-light bg-light ${

@@ -46,35 +46,69 @@ export default function Register() {
     <div className="register-wrapper">
       <h1>Register</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          <p>Email</p>
-          <input type="text" onChange={(e) => setEmail(e.target.value)} />
-        </label>
-        <label>
-          <p>Password</p>
+        <div className="mb-3">
+          <label htmlFor="emailInput" className="form-label">
+            Email
+          </label>
+          <input
+            type="text"
+            id="emailInput"
+            className="form-control"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="passwordInput" className="form-label">
+            Password
+          </label>
           <input
             type="password"
+            id="passwordInput"
+            className="form-control"
             onChange={(e) => setPassword(e.target.value)}
           />
-        </label>
-        <label>
-          <p>Firstname</p>
-          <input type="text" onChange={(e) => setFirstname(e.target.value)} />
-        </label>
-        <label>
-          <p>Lastname</p>
-          <input type="text" onChange={(e) => setLastname(e.target.value)} />
-        </label>
-        <label>
-          <p>Role</p>
-          <select value={role} onChange={(e) => setRole(e.target.value)}>
+        </div>
+        <div className="mb-3">
+          <label htmlFor="firstnameInput" className="form-label">
+            Firstname
+          </label>
+          <input
+            type="text"
+            id="firstnameInput"
+            className="form-control"
+            onChange={(e) => setFirstname(e.target.value)}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="lastnameInput" className="form-label">
+            Lastname
+          </label>
+          <input
+            type="text"
+            id="lastnameInput"
+            className="form-control"
+            onChange={(e) => setLastname(e.target.value)}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="roleSelect" className="form-label">
+            Role
+          </label>
+          <select
+            id="roleSelect"
+            className="form-select"
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+          >
             <option value="USER">USER</option>
             <option value="ADMIN">ADMIN</option>
             <option value="MANAGER">MANAGER</option>
           </select>
-        </label>
+        </div>
         <div>
-          <button type="submit">Submit</button>
+          <button type="submit" className="btn btn-primary">
+            Submit
+          </button>
         </div>
       </form>
       <div>

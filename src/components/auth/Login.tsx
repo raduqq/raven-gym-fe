@@ -44,19 +44,32 @@ export default function Login() {
     <div className="login-wrapper">
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          <p>Email</p>
-          <input type="text" onChange={(e) => setEmail(e.target.value)} />
-        </label>
-        <label>
-          <p>Password</p>
+        <div className="mb-3">
+          <label htmlFor="emailInput" className="form-label">
+            Email
+          </label>
+          <input
+            type="text"
+            id="emailInput"
+            className="form-control"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="passwordInput" className="form-label">
+            Password
+          </label>
           <input
             type="password"
+            id="passwordInput"
+            className="form-control"
             onChange={(e) => setPassword(e.target.value)}
           />
-        </label>
+        </div>
         <div>
-          <button type="submit">Submit</button>
+          <button type="submit" className="btn btn-primary">
+            Submit
+          </button>
         </div>
       </form>
       <div>
