@@ -7,6 +7,7 @@ import Disciplines from "./components/pages/Disciplines";
 import About from "./components/pages/About";
 import Register from "./components/auth/Register";
 import Navbar from "./components/Navbar";
+import Students from "./components/pages/Students";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/disciplines" element={<Disciplines />} />
+        <Route path="/students" element={<Students />} />
       </Routes>
     </>
   );

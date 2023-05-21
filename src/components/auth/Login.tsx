@@ -36,7 +36,7 @@ export default function Login() {
       password: password,
     });
 
-    setToken(token);
+    setToken(token);    
     navigate("/");
   };
 
